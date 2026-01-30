@@ -11,7 +11,7 @@ function analyzeSkills() {
 
     resultBox.textContent = "Analyzing skill gap...";
 
-    fetch("https://predictive-skill-gap-backend.onrender.com/", {
+    fetch("https://predictive-skill-gap-backend.onrender.com/analyze", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
