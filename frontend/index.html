@@ -1,20 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Predictive Skill Gap Analyzer</title>
+    <meta charset="UTF-8">
+    <title>Predictive Skill Gap Analyzer</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h2>Predictive Skill Gap Analyzer</h2>
+    <div class="container">
 
-  <textarea id="inputText" rows="6" cols="60"
-    placeholder="Enter your skills and interests..."></textarea>
-  <br><br>
+        <h1>Predictive Skill Gap Analyzer</h1>
 
-  <button onclick="analyze()">Analyze</button>
+        <p class="quote">
+            “Learn continuously — because skills decide the future.”
+        </p>
 
-  <pre id="result"></pre>
+        <textarea id="inputText"
+            placeholder="Enter your background, skills, or experience here...">
+        </textarea>
 
-  <script src="script.js"></script>
+        <button id="analyzeBtn">
+            Analyze
+        </button>
+
+        <pre id="result">
+Results will appear here...
+        </pre>
+
+    </div>
+
+    <!-- ✅ ADD THIS LINE HERE (VERY IMPORTANT) -->
+    <script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+

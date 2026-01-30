@@ -1,84 +1,109 @@
-year,job_role,skills
-2020,Software Engineer,"c,java,sql"
-2021,Software Engineer,"java,python,sql"
-2022,Software Engineer,"python,sql,cloud"
-2023,Software Engineer,"python,cloud"
-2024,Software Engineer,"python,cloud,automation"
-2025,Software Engineer,"python,cloud,automation,devops"
+year,job_role,skills,experience_level
+2015,Software Engineer,"c,java,sql",fresher
+2016,Software Engineer,"java,oop,sql",fresher
+2017,Software Engineer,"java,python,sql",junior
+2018,Software Engineer,"python,git,sql",junior
+2019,Software Engineer,"python,sql,cloud basics",junior
+2020,Software Engineer,"python,cloud,rest api",mid
+2021,Software Engineer,"cloud,rest api,microservices",mid
+2022,Software Engineer,"devops,docker,cloud",mid
+2023,Software Engineer,"kubernetes,ci cd,devops",senior
+2024,Software Engineer,"cloud automation,devops",senior
+2025,Software Engineer,"ai tools,cloud devops",senior
 
-2020,Civil Engineer,"autocad,construction planning"
-2021,Civil Engineer,"staad,structural analysis"
-2022,Civil Engineer,"bim,project management"
-2023,Civil Engineer,"bim"
-2024,Civil Engineer,"bim,smart construction"
-2025,Civil Engineer,"bim,smart construction"
+2015,Aerospace Engineer,"engineering mechanics",fresher
+2016,Aerospace Engineer,"fluid mechanics",fresher
+2017,Aerospace Engineer,"aerodynamics",junior
+2018,Aerospace Engineer,"aircraft structures",junior
+2019,Aerospace Engineer,"propulsion systems",junior
+2020,Aerospace Engineer,"flight dynamics",mid
+2021,Aerospace Engineer,"composite materials",mid
+2022,Aerospace Engineer,"avionics basics",mid
+2023,Aerospace Engineer,"uav systems",senior
+2024,Aerospace Engineer,"space systems engineering",senior
+2025,Aerospace Engineer,"autonomous flight systems",senior
 
-2020,Mechanical Engineer,"thermodynamics,manufacturing"
-2021,Mechanical Engineer,"solidworks,manufacturing"
-2022,Mechanical Engineer,"cnc,automation"
-2023,Mechanical Engineer,"robotics,automation"
-2024,Mechanical Engineer,"robotics"
-2025,Mechanical Engineer,"robotics,digital manufacturing"
+2015,ECE Engineer,"basic electronics",fresher
+2016,ECE Engineer,"analog circuits",fresher
+2017,ECE Engineer,"digital electronics",junior
+2018,ECE Engineer,"signals and systems",junior
+2019,ECE Engineer,"communication systems",junior
+2020,ECE Engineer,"embedded c",mid
+2021,ECE Engineer,"iot systems",mid
+2022,ECE Engineer,"vlsi design",mid
+2023,ECE Engineer,"edge computing",senior
+2024,ECE Engineer,"ai hardware integration",senior
+2025,ECE Engineer,"intelligent embedded systems",senior
 
-2020,ECE Engineer,"embedded c,communication systems"
-2021,ECE Engineer,"embedded c,vlsi"
-2022,ECE Engineer,"iot,embedded c"
-2023,ECE Engineer,"iot,edge computing"
-2024,ECE Engineer,"edge computing"
-2025,ECE Engineer,"edge computing,automation"
+2015,EEE Engineer,"electrical machines",fresher
+2016,EEE Engineer,"power systems",fresher
+2017,EEE Engineer,"control systems",junior
+2018,EEE Engineer,"power electronics",junior
+2019,EEE Engineer,"renewable energy basics",junior
+2020,EEE Engineer,"smart grids",mid
+2021,EEE Engineer,"energy management systems",mid
+2022,EEE Engineer,"electric vehicles",mid
+2023,EEE Engineer,"battery management systems",senior
+2024,EEE Engineer,"sustainable energy systems",senior
+2025,EEE Engineer,"ai based power optimization",senior
 
-2020,EEE Engineer,"power systems,electrical machines"
-2021,EEE Engineer,"control systems"
-2022,EEE Engineer,"plc,automation"
-2023,EEE Engineer,"smart grids"
-2024,EEE Engineer,"smart grids"
-2025,EEE Engineer,"smart grids,energy analytics"
+2015,Mechanical Engineer,"engineering drawing",fresher
+2016,Mechanical Engineer,"thermodynamics",fresher
+2017,Mechanical Engineer,"solidworks",junior
+2018,Mechanical Engineer,"manufacturing processes",junior
+2019,Mechanical Engineer,"cnc machining",junior
+2020,Mechanical Engineer,"robotics",mid
+2021,Mechanical Engineer,"automation systems",mid
+2022,Mechanical Engineer,"mechatronics",mid
+2023,Mechanical Engineer,"smart manufacturing",senior
+2024,Mechanical Engineer,"industry 4.0",senior
+2025,Mechanical Engineer,"digital manufacturing",senior
 
-2020,Law Professional,"legal writing,case analysis"
-2021,Law Professional,"legal research,documentation"
-2022,Law Professional,"cyber law,compliance"
-2023,Law Professional,"legal analytics"
-2024,Law Professional,"legal analytics,cyber law"
-2025,Law Professional,"legal analytics,cyber law"
+2015,Civil Engineer,"surveying",fresher
+2016,Civil Engineer,"autocad",fresher
+2017,Civil Engineer,"building materials",junior
+2018,Civil Engineer,"structural analysis",junior
+2019,Civil Engineer,"staad",junior
+2020,Civil Engineer,"bim modeling",mid
+2021,Civil Engineer,"construction planning",mid
+2022,Civil Engineer,"project management",mid
+2023,Civil Engineer,"smart construction",senior
+2024,Civil Engineer,"sustainable construction",senior
+2025,Civil Engineer,"digital twins",senior
 
-2020,Business Professional,"accounting,excel"
-2021,Business Professional,"finance,marketing"
-2022,Business Professional,"data analysis"
-2023,Business Professional,"business analytics"
-2024,Business Professional,"business analytics"
-2025,Business Professional,"business analytics"
+2015,Law Professional,"legal research",fresher
+2016,Law Professional,"legal writing",fresher
+2017,Law Professional,"constitutional law",junior
+2018,Law Professional,"criminal law",junior
+2019,Law Professional,"corporate law",junior
+2020,Law Professional,"intellectual property law",mid
+2021,Law Professional,"cyber law",mid
+2022,Law Professional,"legal analytics",mid
+2023,Law Professional,"tech law",senior
+2024,Law Professional,"ai governance",senior
+2025,Law Professional,"digital law compliance",senior
 
-2020,Health Professional,"doctor,medical basics,patient care"
-2021,Health Professional,"clinical skills"
-2022,Health Professional,"health informatics"
-2023,Health Professional,"digital health"
-2024,Health Professional,"digital health"
-2025,Health Professional,"digital health"
+2015,Doctor,"human anatomy",fresher
+2016,Doctor,"physiology",fresher
+2017,Doctor,"pathology",junior
+2018,Doctor,"pharmacology",junior
+2019,Doctor,"clinical diagnosis",junior
+2020,Doctor,"medical imaging basics",mid
+2021,Doctor,"telemedicine",mid
+2022,Doctor,"digital health records",mid
+2023,Doctor,"ai assisted diagnosis",senior
+2024,Doctor,"personalized medicine",senior
+2025,Doctor,"predictive healthcare analytics",senior
 
-2020,Science Professional,"laboratory skills,research"
-2021,Science Professional,"data analysis"
-2022,Science Professional,"simulation tools"
-2023,Science Professional,"computational methods"
-2024,Science Professional,"computational methods"
-2025,Science Professional,"computational methods"
+2015,Business Management,"business fundamentals",fresher
+2016,Business Management,"accounting basics",fresher
+2017,Business Management,"marketing principles",junior
+2018,Business Management,"operations management",junior
+2019,Business Management,"financial management",junior
+2020,Business Management,"business analytics",mid
+2021,Business Management,"data driven decision making",mid
+2022,Business Management,"digital transformation",mid
+2023,Business Management,"strategic management",senior
+2024,Business Management,"ai in business",senior
+2025,Business Management,"intelligent enterprise systems",senior
 
-2020,Arts Professional,"design basics"
-2021,Arts Professional,"digital design"
-2022,Arts Professional,"ui ux"
-2023,Arts Professional,"media technology"
-2024,Arts Professional,"media technology"
-2025,Arts Professional,"media technology"
-
-2020,Education Professional,"teaching methods"
-2021,Education Professional,"curriculum design"
-2022,Education Professional,"e learning tools"
-2023,Education Professional,"digital pedagogy"
-2024,Education Professional,"digital pedagogy"
-2025,Education Professional,"digital pedagogy"
-
-2020,General,"basic computer skills"
-2021,General,"digital literacy"
-2022,General,"digital literacy"
-2023,General,"cloud basics"
-2024,General,"cloud basics"
-2025,General,"basics"
