@@ -7,41 +7,45 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Predictive Skill Gap Analyzer</h1>
+        <h1>Predictive Skill Gap Analyzer</h1>
 
-    <p class="quote">
-        “Bridging the skill gap today prepares students for the careers of tomorrow.”
-    </p>
+        <p class="quote">
+            “Bridging the skill gap today prepares students for the careers of tomorrow.”
+        </p>
 
-    <!-- Textarea with constant grey guidance -->
-    <div class="textarea-wrapper">
-        <div class="fixed-guidance">
-            Describe your skills and experience here:
+        <!-- Text Input Box -->
+        <div class="textarea-wrapper">
+            <div class="guidance">
+                Describe your skills and experience here:
+            </div>
+            <textarea id="inputText"></textarea>
         </div>
-        <textarea id="inputText"></textarea>
+
+        <!-- Analyze Button -->
+        <button id="analyzeBtn">
+            Analyze
+        </button>
+
+        <!-- Result Box -->
+        <pre id="result">
+Results will appear here...
+        </pre>
+
     </div>
 
-    <!-- Analyze Button (CENTERED) -->
-    <button id="analyzeBtn">Analyze</button>
-
-    <!-- Result Box -->
-    <pre id="result">
-Results will appear here...
-    </pre>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
+
 
 
 
