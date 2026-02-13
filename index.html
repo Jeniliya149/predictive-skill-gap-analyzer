@@ -12,26 +12,33 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Predictive Skill Gap Analyzer</h1>
+    <h1>Predictive Skill Gap Analyzer</h1>
 
-        <p class="quote">
-            “Bridging the skill gap today prepares students for the careers of tomorrow.”
-        </p>
+    <p class="quote">
+        “Bridging the skill gap today prepares students for the careers of tomorrow.”
+    </p>
+
+    <!-- Textarea with constant grey guidance -->
+    <div class="textarea-wrapper">
+        <div class="fixed-guidance">
+            Describe your skills and experience here:
+        </div>
         <textarea id="inputText"></textarea>
-
-             describe your skills and experience clearly:
-
-        </textarea>
-
-        <button id="analyzeBtn">Analyze</button>
-
-        <pre id="result">Results will appear here...</pre>
-
     </div>
 
-    <script src="script.js"></script>
+    <!-- Analyze Button (CENTERED) -->
+    <button id="analyzeBtn">Analyze</button>
+
+    <!-- Result Box -->
+    <pre id="result">
+Results will appear here...
+    </pre>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
