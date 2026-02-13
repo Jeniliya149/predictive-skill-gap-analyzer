@@ -42,9 +42,10 @@ function analyzeSkills() {
         resultBox.textContent = output;
     })
     .catch(() => {
-        resultBox.textContent = "Error connecting to backend. Make sure backend is running.";
+        resultBox.textContent = "Error connecting to backend.";
     });
 }
+
 
 
 
