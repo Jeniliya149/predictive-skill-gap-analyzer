@@ -1,11 +1,26 @@
 document.getElementById("analyzeBtn").addEventListener("click", analyzeSkills);
 
+// Move cursor automatically below guidance text
+window.onload = function () {
+    const textarea = document.getElementById("inputText");
+    textarea.selectionStart = textarea.value.length;
+    textarea.selectionEnd = textarea.value.length;
+};
+
 function analyzeSkills() {
-    const inputText = document.getElementById("inputText").value.trim();
+
+    const textarea = document.getElementById("inputText");
+    const inputText = textarea.value.trim();
     const resultBox = document.getElementById("result");
 
-    if (inputText === "") {
-        resultBox.textContent = "Please enter your skills or background.";
+    // Remove guidance text before sending to backend
+    const cleanedText = inputText.replace(
+        "Please describe your skills and experience clearly below:",
+        ""
+    ).trim();
+
+    if (cleanedText === "") {
+        resultBox.textContent = "Please enter your skills and experience.";
         return;
     }
 
@@ -16,17 +31,20 @@ function analyzeSkills() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ text: inputText })
+        body: JSON.stringify({ text: cleanedText })
     })
     .then(response => response.json())
     .then(data => {
+
         let output = "";
 
         output += "Detected Role: " + data.job_role_detected + "\n";
         output += "Experience Level: " + data.experience_level + "\n\n";
 
         output += "Current Skills:\n";
-        output += (data.current_skills.length > 0 ? "- " + data.current_skills.join("\n- ") : "None") + "\n\n";
+        output += (data.current_skills.length > 0
+            ? "- " + data.current_skills.join("\n- ")
+            : "None") + "\n\n";
 
         output += "Future Required Skills:\n";
         output += "- " + data.future_skills.join("\n- ") + "\n\n";
