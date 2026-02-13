@@ -1,60 +1,42 @@
-/* ---------- Global Reset ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ---------- Body ---------- */
 body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: #f0f0f0;
+    background: #f2f2f2;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ---------- Main Card ---------- */
 .container {
     width: 75%;
     max-width: 850px;
     padding: 40px;
     background: #ffffff;
     border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     text-align: center;
 }
 
-/* ---------- Heading ---------- */
 .container h1 {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     margin-bottom: 10px;
 }
 
-/* ---------- Quote ---------- */
 .quote {
     font-style: italic;
     font-size: 15px;
-    color: #555;
     margin-bottom: 25px;
+    color: #555;
 }
 
-/* ---------- Guidance Text ---------- */
-.guidance {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #888; /* Light grey guidance */
-    text-align: left;
-}
-
-/* ---------- Textarea Wrapper ---------- */
-.textarea-wrapper {
-    margin-bottom: 20px;
-}
-
-/* ---------- Textarea ---------- */
+/* TEXTAREA */
 textarea {
     width: 100%;
     height: 120px;
@@ -65,11 +47,17 @@ textarea {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
     outline: none;
-    background: #f5f5f5;
-    color: #000000; /* User typing BLACK */
+    margin-bottom: 25px;
+    background: #f9f9f9;
+    color: #000;   /* User typing always BLACK */
 }
 
-/* ---------- Button ---------- */
+/* Placeholder color */
+textarea::placeholder {
+    color: #888;  /* Light grey guidance */
+}
+
+/* Button */
 button {
     padding: 12px 40px;
     font-size: 16px;
@@ -85,22 +73,23 @@ button {
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------- Result Box ---------- */
+/* Result box */
 pre {
     padding: 18px;
-    height: 180px;
+    height: 160px;
     overflow-y: auto;
     border-radius: 12px;
     font-size: 14px;
     text-align: left;
-    background: #f5f5f5;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
     color: #222;
     white-space: pre-wrap;
-    border: 1px solid #ddd;
 }
+
 
 
 
