@@ -1,25 +1,37 @@
-document.getElementById("analyzeBtn").addEventListener("click", analyzeSkills);
+const textarea = document.getElementById("inputText");
+const guidanceText = "Please describe your skills and experience clearly below:\n\n";
 
-// Move cursor automatically below guidance text
+// Set initial guidance
 window.onload = function () {
-    const textarea = document.getElementById("inputText");
-    textarea.selectionStart = textarea.value.length;
-    textarea.selectionEnd = textarea.value.length;
+    textarea.value = guidanceText;
+    textarea.style.color = "#888";  // light grey
 };
+
+// Prevent deleting guidance text
+textarea.addEventListener("keydown", function (e) {
+    if (textarea.selectionStart <= guidanceText.length) {
+        if (e.key === "Backspace" || e.key === "Delete") {
+            e.preventDefault();
+        }
+    }
+});
+
+// When user types after guidance, change text color to black
+textarea.addEventListener("input", function () {
+    if (textarea.value.length > guidanceText.length) {
+        textarea.style.color = "#000";
+    }
+});
+
+document.getElementById("analyzeBtn").addEventListener("click", analyzeSkills);
 
 function analyzeSkills() {
 
-    const textarea = document.getElementById("inputText");
-    const inputText = textarea.value.trim();
     const resultBox = document.getElementById("result");
 
-    // Remove guidance text before sending to backend
-    const cleanedText = inputText.replace(
-        "Please describe your skills and experience clearly below:",
-        ""
-    ).trim();
+    const userText = textarea.value.replace(guidanceText, "").trim();
 
-    if (cleanedText === "") {
+    if (userText === "") {
         resultBox.textContent = "Please enter your skills and experience.";
         return;
     }
@@ -31,7 +43,7 @@ function analyzeSkills() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ text: cleanedText })
+        body: JSON.stringify({ text: userText })
     })
     .then(response => response.json())
     .then(data => {
