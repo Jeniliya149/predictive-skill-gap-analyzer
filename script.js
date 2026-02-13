@@ -1,25 +1,22 @@
 const textarea = document.getElementById("inputText");
-const guidanceText = "Please describe your skills and experience clearly below:\n\n";
+const fixedText = "Describe your skills and experience here:\n\n";
 
-// Set initial guidance
 window.onload = function () {
-    textarea.value = guidanceText;
-    textarea.style.color = "#888";  // light grey
+    textarea.value = fixedText;
+    textarea.style.color = "#888"; // light grey
+    textarea.setSelectionRange(fixedText.length, fixedText.length);
 };
 
-// Prevent deleting guidance text
 textarea.addEventListener("keydown", function (e) {
-    if (textarea.selectionStart <= guidanceText.length) {
-        if (e.key === "Backspace" || e.key === "Delete") {
-            e.preventDefault();
-        }
+    if (textarea.selectionStart < fixedText.length) {
+        e.preventDefault();
+        textarea.setSelectionRange(fixedText.length, fixedText.length);
     }
 });
 
-// When user types after guidance, change text color to black
-textarea.addEventListener("input", function () {
-    if (textarea.value.length > guidanceText.length) {
-        textarea.style.color = "#000";
+textarea.addEventListener("click", function () {
+    if (textarea.selectionStart < fixedText.length) {
+        textarea.setSelectionRange(fixedText.length, fixedText.length);
     }
 });
 
@@ -29,7 +26,7 @@ function analyzeSkills() {
 
     const resultBox = document.getElementById("result");
 
-    const userText = textarea.value.replace(guidanceText, "").trim();
+    const userText = textarea.value.replace(fixedText, "").trim();
 
     if (userText === "") {
         resultBox.textContent = "Please enter your skills and experience.";
