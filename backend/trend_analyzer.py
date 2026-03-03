@@ -4,15 +4,19 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATASET_PATH = os.path.join(BASE_DIR, "dataset", "jobs.csv")
 
+
 def predict_future_skills(job_role):
     """
-    Predict future skills using last 3 years (2023–2025)
-    based on job role only.
+    Predict future skills using last 3 years dynamically
+    based on job role.
     """
 
     df = pd.read_csv(DATASET_PATH)
 
-    role_df = df[df["job_role"] == job_role]
+    # Clean column formatting safety
+    df["job_role"] = df["job_role"].str.strip()
+
+    role_df = df[df["job_role"] == job_role.strip()]
 
     if role_df.empty:
         return []
@@ -26,7 +30,7 @@ def predict_future_skills(job_role):
         for skill in skills.split(","):
             future_skills.add(skill.strip())
 
-    return sorted(list(future_skills))
+    return sorted(future_skills)
 
 
 

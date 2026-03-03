@@ -1,15 +1,15 @@
 year,job_role,skills,experience_level
 2015,Software Engineer,"c,java,sql",fresher
-2016,Software Engineer,"java,oop,sql",fresher
-2017,Software Engineer,"java,python,sql",junior
-2018,Software Engineer,"python,git,sql",junior
-2019,Software Engineer,"python,sql,cloud basics",junior
-2020,Software Engineer,"python,cloud,rest api",mid
-2021,Software Engineer,"cloud,rest api,microservices",mid
-2022,Software Engineer,"devops,docker,cloud",mid
-2023,Software Engineer,"kubernetes,ci cd,devops",senior
-2024,Software Engineer,"cloud automation,devops",senior
-2025,Software Engineer,"ai tools,cloud devops",senior
+2016,Software Engineer,"java,oop,sql,html",fresher
+2017,Software Engineer,"java,python,sql,css",junior
+2018,Software Engineer,"python,git,sql,javascript",junior
+2019,Software Engineer,"python,sql,cloud basics,web development",junior
+2020,Software Engineer,"python,cloud,rest api,backend development",mid
+2021,Software Engineer,"cloud,rest api,microservices,frontend development",mid
+2022,Software Engineer,"devops,docker,cloud,react,nodejs",mid
+2023,Software Engineer,"kubernetes,ci cd,devops,full stack development",senior
+2024,Software Engineer,"cloud automation,system design,database design",senior
+2025,Software Engineer,"ai tools,cloud devops,web development,dsa",senior
 
 2015,Aerospace Engineer,"engineering mechanics",fresher
 2016,Aerospace Engineer,"fluid mechanics",fresher
@@ -83,17 +83,17 @@ year,job_role,skills,experience_level
 2024,Law Professional,"ai governance",senior
 2025,Law Professional,"digital law compliance",senior
 
-2015,Doctor,"human anatomy",fresher
-2016,Doctor,"physiology",fresher
-2017,Doctor,"pathology",junior
-2018,Doctor,"pharmacology",junior
-2019,Doctor,"clinical diagnosis",junior
-2020,Doctor,"medical imaging basics",mid
-2021,Doctor,"telemedicine",mid
-2022,Doctor,"digital health records",mid
-2023,Doctor,"ai assisted diagnosis",senior
-2024,Doctor,"personalized medicine",senior
-2025,Doctor,"predictive healthcare analytics",senior
+2015,Healthcare,"mbbs,human anatomy",fresher
+2016,Healthcare,"physiology,basic healthcare",fresher
+2017,Healthcare,"pathology,clinical observation",junior
+2018,Healthcare,"pharmacology,bds",junior
+2019,Healthcare,"clinical diagnosis,homeopathy",junior
+2020,Healthcare,"medical imaging basics,health systems",mid
+2021,Healthcare,"telemedicine,public health management",mid
+2022,Healthcare,"digital health records,health informatics",mid
+2023,Healthcare,"ai assisted diagnosis,clinical research",senior
+2024,Healthcare,"personalized medicine,medical data analysis",senior
+2025,Healthcare,"predictive healthcare analytics,healthcare technology management",senior
 
 2015,Business Management,"business fundamentals",fresher
 2016,Business Management,"accounting basics",fresher

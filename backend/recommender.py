@@ -6,10 +6,10 @@ It uses ONLY skills present in the 2015–2025 dataset.
 No prediction logic is done here.
 """
 
-# Learning duration mapping (realistic & dataset-based)
+# Learning duration mapping (STRICTLY DATASET-ALIGNED)
 COURSE_DURATION = {
 
-    # ===== Software Engineer (CSE) =====
+    # ===== Software Engineer =====
     "c": "4 weeks",
     "java": "6 weeks",
     "oop": "3 weeks",
@@ -27,6 +27,18 @@ COURSE_DURATION = {
     "cloud automation": "4 weeks",
     "ai tools": "3 weeks",
     "cloud devops": "6 weeks",
+    "html": "2 weeks",
+    "css": "3 weeks",
+    "javascript": "6 weeks",
+    "dsa": "8 weeks",
+    "web development": "8 weeks",
+    "react": "6 weeks",
+    "nodejs": "6 weeks",
+    "full stack development": "10–12 weeks",
+    "frontend development": "6 weeks",
+    "backend development": "6 weeks",
+    "database design": "4 weeks",
+    "system design": "8 weeks",
 
     # ===== Aerospace Engineer =====
     "engineering mechanics": "6 weeks",
@@ -106,18 +118,29 @@ COURSE_DURATION = {
     "ai governance": "4 weeks",
     "digital law compliance": "4 weeks",
 
-    # ===== Doctor =====
+    # ===== Healthcare =====
+    "mbbs": "5 years academic program",
     "human anatomy": "6 weeks",
     "physiology": "6 weeks",
+    "basic healthcare": "4 weeks",
     "pathology": "6 weeks",
+    "clinical observation": "4 weeks",
     "pharmacology": "6 weeks",
+    "bds": "5 years academic program",
     "clinical diagnosis": "6 weeks",
+    "homeopathy": "4 years academic program",
     "medical imaging basics": "4 weeks",
+    "health systems": "6 weeks",
     "telemedicine": "4 weeks",
+    "public health management": "6 weeks",
     "digital health records": "4 weeks",
+    "health informatics": "6 weeks",
     "ai assisted diagnosis": "4 weeks",
+    "clinical research": "8 weeks",
     "personalized medicine": "6 weeks",
+    "medical data analysis": "6 weeks",
     "predictive healthcare analytics": "6 weeks",
+    "healthcare technology management": "6 weeks",
 
     # ===== Business Management =====
     "business fundamentals": "4 weeks",
@@ -146,9 +169,7 @@ def recommend(skill_gap):
         if skill in COURSE_DURATION:
             recommendations[skill] = COURSE_DURATION[skill]
         else:
-            # Safe default (won't usually occur)
+            # Safe fallback (should not occur if dataset aligned)
             recommendations[skill] = "4–6 weeks"
 
     return recommendations
-
-

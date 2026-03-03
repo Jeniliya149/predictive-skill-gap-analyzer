@@ -1,10 +1,12 @@
 import re
 
+
 # -------------------------
 # Normalize text
 # -------------------------
 def normalize(text):
-    return text.lower()
+    return text.lower().strip()
+
 
 # -------------------------
 # Detect Experience Level
@@ -14,176 +16,77 @@ def detect_experience(text):
 
     if "senior" in text:
         return "senior"
-    if "mid" in text or "experienced" in text:
+    elif "mid" in text or "experienced" in text:
         return "mid"
-    if "junior" in text:
+    elif "junior" in text:
         return "junior"
-    if "fresher" in text or "student" in text:
+    elif "fresher" in text or "student" in text:
         return "fresher"
 
     return "unknown"
 
+
 # -------------------------
-# Detect Job Role (STRICT & DATASET-BASED)
+# Detect Job Role (Clean & Controlled)
 # -------------------------
 def detect_branch(text):
     text = normalize(text)
 
     role_keywords = {
-        "Software Engineer": [
-            "software", "programming", "developer", "coding",
-            "python", "java", "sql", "oop", "git",
-            "cloud", "devops", "docker", "kubernetes",
-            "ci cd", "microservices", "rest api", "ai tools"
-        ],
-
-        "Civil Engineer": [
-            "civil", "construction", "surveying", "autocad",
-            "building materials", "structural analysis",
-            "staad", "bim", "bim modeling",
-            "construction planning", "project management",
-            "smart construction", "sustainable construction",
-            "digital twins"
-        ],
-
-        "Mechanical Engineer": [
-            "mechanical", "engineering drawing", "thermodynamics",
-            "solidworks", "manufacturing processes",
-            "cnc machining", "robotics",
-            "automation systems", "mechatronics",
-            "smart manufacturing", "industry 4.0",
-            "digital manufacturing"
-        ],
-
-        "ECE Engineer": [
-            "ece", "electronics", "basic electronics",
-            "analog circuits", "digital electronics",
-            "signals and systems", "communication systems",
-            "embedded c", "iot systems",
-            "vlsi design", "edge computing",
-            "ai hardware integration",
-            "intelligent embedded systems"
-        ],
-
-        "EEE Engineer": [
-            "eee", "electrical", "electrical machines",
-            "power systems", "control systems",
-            "power electronics", "renewable energy",
-            "smart grids", "energy management systems",
-            "electric vehicles", "battery management systems",
-            "sustainable energy systems",
-            "ai based power optimization"
-        ],
-
-        "Aerospace Engineer": [
-            "aerospace", "engineering mechanics",
-            "fluid mechanics", "aerodynamics",
-            "aircraft structures", "propulsion systems",
-            "flight dynamics", "composite materials",
-            "avionics", "uav systems",
-            "space systems engineering",
-            "autonomous flight systems"
-        ],
-
-        "Law Professional": [
-            "law", "legal", "legal research",
-            "legal writing", "constitutional law",
-            "criminal law", "corporate law",
-            "intellectual property law",
-            "cyber law", "legal analytics",
-            "tech law", "ai governance",
-            "digital law compliance"
-        ],
-
-        "Doctor": [
-            "doctor", "medical", "human anatomy",
-            "physiology", "pathology", "pharmacology",
-            "clinical diagnosis", "medical imaging",
-            "telemedicine", "digital health records",
-            "ai assisted diagnosis",
-            "personalized medicine",
-            "predictive healthcare analytics"
-        ],
-
-        "Business Management": [
-            "business", "management", "business fundamentals",
-            "accounting", "marketing",
-            "operations management",
-            "financial management",
-            "business analytics",
-            "data driven decision making",
-            "digital transformation",
-            "strategic management",
-            "ai in business",
-            "intelligent enterprise systems"
-        ]
+        "Software Engineer": ["software", "developer", "programming"],
+        "Aerospace Engineer": ["aerospace"],
+        "ECE Engineer": ["ece", "electronics"],
+        "EEE Engineer": ["eee", "electrical"],
+        "Mechanical Engineer": ["mechanical"],
+        "Civil Engineer": ["civil"],
+        "Law Professional": ["law", "legal"],
+        "Healthcare": ["healthcare", "doctor", "medical", "mbbs", "bds", "homeopathy"],
+        "Business Management": ["business", "management"]
     }
 
     scores = {}
 
     for role, keywords in role_keywords.items():
-        scores[role] = 0
-        for keyword in keywords:
-            if keyword in text:
-                scores[role] += 1
+        scores[role] = sum(1 for keyword in keywords if keyword in text)
 
-    # Select role with highest keyword match
     best_role = max(scores, key=scores.get)
 
-    # If no keywords matched at all → Unknown (HONEST)
     if scores[best_role] == 0:
         return "Unknown"
 
     return best_role
 
+
 # -------------------------
-# Extract Skills (STRICT DATASET SKILLS)
+# Extract Skills (STRICT DATASET MATCH)
 # -------------------------
 def extract_skills(text):
-    text = text.lower()
+    text = normalize(text)
+
+    # Remove special characters but keep spaces
+    text = re.sub(r"[^a-z0-9\s]", " ", text)
+
+    # Add padding spaces for strict matching
+    text = f" {text} "
 
     known_skills = [
-        # Software
-        "c", "java", "python", "sql", "oop", "git",
-        "cloud", "cloud basics", "rest api",
+
+        # ===== Software Engineer (exactly from dataset) =====
+        "c", "java", "oop", "python", "sql", "git",
+        "cloud basics", "cloud", "rest api",
         "microservices", "devops", "docker",
         "kubernetes", "ci cd", "cloud automation",
-        "cloud devops", "ai tools",
+        "ai tools", "cloud devops",
+        "html", "css", "javascript",
+        "dsa", "web development",
+        "react", "nodejs",
+        "backend development",
+        "frontend development",
+        "full stack development",
+        "database design",
+        "system design",
 
-        # Civil
-        "surveying", "autocad", "building materials",
-        "structural analysis", "staad",
-        "bim", "bim modeling", "construction planning",
-        "project management", "smart construction",
-        "sustainable construction", "digital twins",
-
-        # Mechanical
-        "engineering drawing", "thermodynamics",
-        "solidworks", "manufacturing processes",
-        "cnc machining", "robotics",
-        "automation systems", "mechatronics",
-        "smart manufacturing", "industry 4.0",
-        "digital manufacturing",
-
-        # ECE
-        "basic electronics", "analog circuits",
-        "digital electronics", "signals and systems",
-        "communication systems", "embedded c",
-        "iot systems", "vlsi design",
-        "edge computing", "ai hardware integration",
-        "intelligent embedded systems",
-
-        # EEE
-        "electrical machines", "power systems",
-        "control systems", "power electronics",
-        "renewable energy", "smart grids",
-        "energy management systems",
-        "electric vehicles",
-        "battery management systems",
-        "sustainable energy systems",
-        "ai based power optimization",
-
-        # Aerospace
+        # ===== Aerospace Engineer =====
         "engineering mechanics", "fluid mechanics",
         "aerodynamics", "aircraft structures",
         "propulsion systems", "flight dynamics",
@@ -191,24 +94,66 @@ def extract_skills(text):
         "uav systems", "space systems engineering",
         "autonomous flight systems",
 
-        # Law
+        # ===== ECE Engineer =====
+        "basic electronics", "analog circuits",
+        "digital electronics", "signals and systems",
+        "communication systems", "embedded c",
+        "iot systems", "vlsi design",
+        "edge computing", "ai hardware integration",
+        "intelligent embedded systems",
+
+        # ===== EEE Engineer =====
+        "electrical machines", "power systems",
+        "control systems", "power electronics",
+        "renewable energy basics", "smart grids",
+        "energy management systems",
+        "electric vehicles",
+        "battery management systems",
+        "sustainable energy systems",
+        "ai based power optimization",
+
+        # ===== Mechanical Engineer =====
+        "engineering drawing", "thermodynamics",
+        "solidworks", "manufacturing processes",
+        "cnc machining", "robotics",
+        "automation systems", "mechatronics",
+        "smart manufacturing", "industry 4.0",
+        "digital manufacturing",
+
+        # ===== Civil Engineer =====
+        "surveying", "autocad",
+        "building materials", "structural analysis",
+        "staad", "bim modeling",
+        "construction planning",
+        "project management",
+        "smart construction",
+        "sustainable construction",
+        "digital twins",
+
+        # ===== Law Professional =====
         "legal research", "legal writing",
         "constitutional law", "criminal law",
-        "corporate law", "intellectual property law",
+        "corporate law",
+        "intellectual property law",
         "cyber law", "legal analytics",
         "tech law", "ai governance",
         "digital law compliance",
 
-        # Doctor
-        "human anatomy", "physiology",
-        "pathology", "pharmacology",
-        "clinical diagnosis", "medical imaging basics",
-        "telemedicine", "digital health records",
-        "ai assisted diagnosis",
-        "personalized medicine",
+        # ===== Healthcare =====
+        "mbbs", "human anatomy",
+        "physiology", "basic healthcare",
+        "pathology", "clinical observation",
+        "pharmacology", "bds",
+        "clinical diagnosis", "homeopathy",
+        "medical imaging basics", "health systems",
+        "telemedicine", "public health management",
+        "digital health records", "health informatics",
+        "ai assisted diagnosis", "clinical research",
+        "personalized medicine", "medical data analysis",
         "predictive healthcare analytics",
+        "healthcare technology management",
 
-        # Business
+        # ===== Business Management =====
         "business fundamentals", "accounting basics",
         "marketing principles", "operations management",
         "financial management", "business analytics",
@@ -222,9 +167,8 @@ def extract_skills(text):
     extracted = []
 
     for skill in known_skills:
-        # match full word or full phrase only
-        pattern = r"\b" + re.escape(skill) + r"\b"
-        if re.search(pattern, text):
+        pattern = f" {skill} "
+        if pattern in text:
             extracted.append(skill)
 
-    return sorted(list(set(extracted)))
+    return sorted(extracted)
