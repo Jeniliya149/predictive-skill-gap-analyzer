@@ -14,7 +14,7 @@ def normalize(text):
 # Dataset Path
 # -------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATASET_PATH = os.path.join(BASE_DIR, "dataset", "jobs.csv")
+DATASET_PATH = os.path.join(os.path.dirname(__file__), "dataset", "jobs.csv")
 
 
 # -------------------------
