@@ -1,17 +1,13 @@
-/* RESET */
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
-
-/* BODY */
-
 body{
 
 font-family:'Poppins',sans-serif;
+
 background:#f2f2f2;
 
 display:flex;
@@ -24,13 +20,10 @@ padding:30px;
 
 }
 
-
-/* MAIN CONTAINER */
-
 .container{
 
 width:90%;
-max-width:950px;
+max-width:1000px;
 
 background:white;
 
@@ -44,41 +37,35 @@ text-align:center;
 
 }
 
-
-/* TITLE */
-
 h1{
 
 font-family:'Playfair Display',serif;
+
 font-size:36px;
 
 margin-bottom:10px;
 
 }
 
-
-/* QUOTE */
-
 .quote{
 
 font-style:italic;
+
 color:#555;
 
 margin-bottom:30px;
 
 }
 
-
-/* PURPOSE BOXES */
-
 .purpose{
 
 display:grid;
+
 grid-template-columns:repeat(2,1fr);
 
 gap:15px;
 
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
@@ -91,6 +78,7 @@ padding:15px;
 border-radius:12px;
 
 display:flex;
+
 align-items:center;
 
 gap:10px;
@@ -100,27 +88,6 @@ font-size:14px;
 color:#444;
 
 }
-
-.purpose-box span{
-
-font-size:22px;
-
-}
-
-
-/* INPUT TITLE */
-
-.input-title{
-
-margin-bottom:10px;
-font-size:16px;
-
-font-weight:500;
-
-}
-
-
-/* TEXTAREA */
 
 textarea{
 
@@ -136,63 +103,35 @@ border:1px solid #ccc;
 
 resize:none;
 
-font-size:15px;
-
 margin-bottom:25px;
 
-background:#fafafa;
-
-outline:none;
-
 }
-
-
-/* ANALYZE BUTTON */
 
 button{
 
 padding:12px 40px;
 
-font-size:16px;
-
 border-radius:30px;
 
 border:none;
-
-cursor:pointer;
 
 background:linear-gradient(135deg,#56ccf2,#2f80ed);
 
 color:white;
 
-margin-bottom:35px;
+font-size:16px;
 
-transition:0.2s;
+cursor:pointer;
 
-}
-
-button:hover{
-
-transform:translateY(-2px);
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
+margin-bottom:30px;
 
 }
-
-
-/* RESULT TITLE */
 
 .result-title{
 
 margin-bottom:20px;
 
-font-size:20px;
-
-font-weight:600;
-
 }
-
-
-/* RESULT GRID */
 
 .result-container{
 
@@ -204,27 +143,19 @@ gap:20px;
 
 }
 
-
-/* RESULT CARD */
-
 .result-card{
 
-background:#ffffff;
+background:#fff;
+
+padding:20px;
 
 border-radius:14px;
-
-padding:18px;
 
 box-shadow:0 6px 18px rgba(0,0,0,0.08);
 
 text-align:left;
 
-line-height:1.6;
-
 }
-
-
-/* CARD TITLE */
 
 .result-card h4{
 
@@ -232,55 +163,7 @@ color:#2f80ed;
 
 margin-bottom:10px;
 
-font-size:16px;
-
 }
-
-
-/* SKILL TAGS */
-
-.skill-tag{
-
-display:inline-block;
-
-background:#eef3ff;
-
-color:#2f80ed;
-
-padding:6px 12px;
-
-margin:5px;
-
-border-radius:20px;
-
-font-size:13px;
-
-}
-
-
-/* FUTURE SKILLS */
-
-.skill-tag.future{
-
-background:#e9f7ff;
-
-color:#0077cc;
-
-}
-
-
-/* SKILL GAP */
-
-.skill-tag.gap{
-
-background:#fff3e8;
-
-color:#d35400;
-
-}
-
-
-/* BADGE (ROLE / EXPERIENCE) */
 
 .badge{
 
@@ -288,31 +171,55 @@ background:#2f80ed;
 
 color:white;
 
-padding:6px 14px;
+padding:6px 12px;
 
 border-radius:20px;
 
 font-size:13px;
 
+}
+
+.chip{
+
 display:inline-block;
+
+padding:6px 10px;
+
+margin:4px;
+
+border-radius:20px;
+
+background:#eef3ff;
+
+color:#2f80ed;
+
+font-size:13px;
 
 }
 
+.chip.future{
 
-/* LEARNING PLAN */
+background:#e9f7ff;
 
-.plan-list{
+color:#0077cc;
+
+}
+
+.chip.gap{
+
+background:#fff3e8;
+
+color:#d35400;
+
+}
+
+ul{
 
 padding-left:18px;
 
 line-height:1.8;
 
-font-size:14px;
-
 }
-
-
-/* MOBILE RESPONSIVE */
 
 @media(max-width:700px){
 
@@ -325,12 +232,6 @@ grid-template-columns:1fr;
 .result-container{
 
 grid-template-columns:1fr;
-
-}
-
-.container{
-
-padding:30px;
 
 }
 
