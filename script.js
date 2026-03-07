@@ -1,91 +1,73 @@
 const textarea = document.getElementById("inputText");
-const fixedText = "Describe your skills and experience here:\n\n";
 
-// Initialize textarea
-window.onload = function () {
-    textarea.value = fixedText;
-    textarea.style.color = "#888";
-    textarea.setSelectionRange(fixedText.length, fixedText.length);
-};
-
-// Prevent deleting the fixed text
-textarea.addEventListener("keydown", function (e) {
-    if (textarea.selectionStart < fixedText.length) {
-        e.preventDefault();
-        textarea.setSelectionRange(fixedText.length, fixedText.length);
-    }
-});
-
-// Prevent clicking before fixed text
-textarea.addEventListener("click", function () {
-    if (textarea.selectionStart < fixedText.length) {
-        textarea.setSelectionRange(fixedText.length, fixedText.length);
-    }
-});
-
-// Analyze button click
 document.getElementById("analyzeBtn").addEventListener("click", analyzeSkills);
 
-function analyzeSkills() {
 
-    const resultBox = document.getElementById("result");
+function analyzeSkills(){
 
-    const userText = textarea.value.replace(fixedText, "").trim();
+const userText = textarea.value.trim();
 
-    if (userText === "") {
-        resultBox.textContent = "Please enter your skills and experience.";
-        return;
-    }
-
-    resultBox.textContent = "Analyzing skill gap...";
-
-    fetch("https://predictive-skill-gap-analyzer-2.onrender.com/analyze", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ text: userText })
-    })
-
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Server error");
-        }
-        return response.json();
-    })
-
-    .then(data => {
-
-        let output = "";
-
-        output += "Detected Role: " + data.job_role_detected + "\n";
-        output += "Experience Level: " + data.experience_level + "\n\n";
-
-        output += "Current Skills:\n";
-        output += (data.current_skills.length > 0
-            ? "- " + data.current_skills.join("\n- ")
-            : "None") + "\n\n";
-
-        output += "Future Required Skills:\n";
-        output += "- " + data.future_skills.join("\n- ") + "\n\n";
-
-        output += "Skill Gap:\n";
-        output += "- " + data.skill_gap.join("\n- ") + "\n\n";
-
-        output += "Recommended Learning Plan:\n";
-
-        for (let skill in data.recommended_courses) {
-            output += "- " + skill + " : " + data.recommended_courses[skill] + "\n";
-        }
-
-        resultBox.textContent = output;
-    })
-
-    .catch(() => {
-        resultBox.textContent = "Error connecting to backend.";
-    });
+if(userText === ""){
+alert("Please describe your skills and experience.");
+return;
 }
 
+fetch("https://predictive-skill-gap-analyzer-2.onrender.com/analyze",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({text:userText})
+
+})
+
+.then(response=>{
+if(!response.ok){
+throw new Error("Server error");
+}
+return response.json();
+})
+
+.then(data=>{
+
+document.getElementById("role").textContent =
+data.job_role_detected;
+
+document.getElementById("experience").textContent =
+data.experience_level;
+
+document.getElementById("currentSkills").textContent =
+data.current_skills.join(", ");
+
+document.getElementById("futureSkills").textContent =
+data.future_skills.join(", ");
+
+document.getElementById("skillGap").textContent =
+data.skill_gap.join(", ");
+
+
+let plan="";
+
+for(let skill in data.recommended_courses){
+
+plan += skill + " : " + data.recommended_courses[skill] + " | ";
+
+}
+
+document.getElementById("learningPlan").textContent = plan;
+
+})
+
+.catch(()=>{
+
+alert("Error connecting to backend.");
+
+});
+
+}
 
 
 

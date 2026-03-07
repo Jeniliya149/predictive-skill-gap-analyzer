@@ -1,40 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Predictive Skill Gap Analyzer</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<head>
+
+<meta charset="UTF-8">
+<title>Predictive Skill Gap Analyzer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Predictive Skill Gap Analyzer</h1>
+<h1>Predictive Skill Gap Analyzer</h1>
 
-        <p class="quote">
-            “Bridging the skill gap today prepares students for the careers of tomorrow.”
-        </p>
+<p class="quote">
+“Bridging the skill gap today prepares students for the careers of tomorrow.”
+</p>
 
-        <!-- ONLY PLACEHOLDER (never deletes manually) -->
-        <textarea 
-            id="inputText"
-            placeholder="Describe your skills and experience here:"
-        ></textarea>
 
-        <button id="analyzeBtn">Analyze</button>
+<!-- PURPOSE SECTION -->
 
-        <pre id="result">
-Results will appear here...
-        </pre>
+<div class="purpose">
 
-    </div>
+<div class="purpose-box">
+<span>🧠</span>
+<p>Detect your career role from your skills</p>
+</div>
 
-    <script src="script.js"></script>
+<div class="purpose-box">
+<span>📊</span>
+<p>Analyze industry skill trends</p>
+</div>
+
+<div class="purpose-box">
+<span>🎯</span>
+<p>Identify the skill gap in your profile</p>
+</div>
+
+<div class="purpose-box">
+<span>📚</span>
+<p>Get recommended learning plan</p>
+</div>
+
+</div>
+
+
+<h3 class="input-title">Describe Your Skills</h3>
+
+<textarea id="inputText"
+placeholder="Example: I know python, sql and cloud and I am a mid developer"></textarea>
+
+
+<button id="analyzeBtn">Analyze</button>
+
+
+
+<h3 class="result-title">Skill Gap Analysis</h3>
+
+<div class="result-container">
+
+<div class="result-card">
+<h4>Role Detected</h4>
+<p id="role">-</p>
+</div>
+
+<div class="result-card">
+<h4>Experience Level</h4>
+<p id="experience">-</p>
+</div>
+
+<div class="result-card">
+<h4>Current Skills</h4>
+<p id="currentSkills">-</p>
+</div>
+
+<div class="result-card">
+<h4>Future Skills</h4>
+<p id="futureSkills">-</p>
+</div>
+
+<div class="result-card">
+<h4>Skill Gap</h4>
+<p id="skillGap">-</p>
+</div>
+
+<div class="result-card">
+<h4>Learning Plan</h4>
+<p id="learningPlan">-</p>
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
 
 
