@@ -9,7 +9,7 @@ alert("Please enter your skills");
 return;
 }
 
-fetch("https://predictive-skill-gap-analyzer-2.onrender.com/analyze",{
+fetch("https://predictive-skill-gap-analyzer.onrender.com/analyze", {
 
 method:"POST",
 
