@@ -33,31 +33,50 @@ return response.json();
 
 .then(data=>{
 
-document.getElementById("role").textContent =
-data.job_role_detected;
+document.getElementById("role").innerHTML =
+`<span class="badge">${data.job_role_detected}</span>`;
 
-document.getElementById("experience").textContent =
-data.experience_level;
-
-document.getElementById("currentSkills").textContent =
-data.current_skills.join(", ");
-
-document.getElementById("futureSkills").textContent =
-data.future_skills.join(", ");
-
-document.getElementById("skillGap").textContent =
-data.skill_gap.join(", ");
+document.getElementById("experience").innerHTML =
+`<span class="badge">${data.experience_level}</span>`;
 
 
-let plan="";
+/* CURRENT SKILLS */
+
+document.getElementById("currentSkills").innerHTML =
+data.current_skills.map(skill =>
+`<span class="skill-tag">${skill}</span>`
+).join("");
+
+
+/* FUTURE SKILLS */
+
+document.getElementById("futureSkills").innerHTML =
+data.future_skills.map(skill =>
+`<span class="skill-tag future">${skill}</span>`
+).join("");
+
+
+/* SKILL GAP */
+
+document.getElementById("skillGap").innerHTML =
+data.skill_gap.map(skill =>
+`<span class="skill-tag gap">${skill}</span>`
+).join("");
+
+
+/* LEARNING PLAN */
+
+let planHTML = "<ul class='plan-list'>";
 
 for(let skill in data.recommended_courses){
 
-plan += skill + " : " + data.recommended_courses[skill] + " | ";
+planHTML += `<li><b>${skill}</b> → ${data.recommended_courses[skill]}</li>`;
 
 }
 
-document.getElementById("learningPlan").textContent = plan;
+planHTML += "</ul>";
+
+document.getElementById("learningPlan").innerHTML = planHTML;
 
 })
 
